@@ -12,7 +12,7 @@ export default function Login() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        // 🧠 Admin Login (Frontend Check)
+
         if (form.username === "admin@gmail.com" && form.licence_plat === "Admin123") {
             const adminUser = {
                 id: 0,

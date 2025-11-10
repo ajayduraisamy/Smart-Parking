@@ -68,22 +68,23 @@ export default function Register() {
 
             <div className="w-full max-w-md">
                 {/* Header */}
-                <div className="text-center mb-8">
-                    <div className="flex justify-center mb-4">
-                        <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl shadow-lg">
-                            <Car className="h-8 w-8 text-white" />
-                        </div>
-                    </div>
-                    <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
-                        Create Account
-                    </h1>
-                    <p className="text-gray-600 dark:text-gray-400">
-                        Join Smart Parking and start your journey
-                    </p>
-                </div>
+               
 
                 {/* Form Card */}
                 <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 border border-gray-200 dark:border-gray-700 backdrop-blur-sm bg-opacity-95">
+                    <div className="text-center mb-8">
+                        <div className="flex justify-center mb-4">
+                            <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl shadow-lg">
+                                <Car className="h-8 w-8 text-white" />
+                            </div>
+                        </div>
+                        <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                            Create Account
+                        </h1>
+                        <p className="text-gray-600 dark:text-gray-400">
+                            Join Smart Parking and start your journey
+                        </p>
+                    </div>
                     <form onSubmit={handleSubmit} className="space-y-6">
                         {/* Username Field */}
                         <div className="space-y-2">

@@ -9,11 +9,25 @@ import AdminDashboard from "./pages/AdminDashboard";
 import { ThemeProvider } from "./context/ThemeContext";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 
-// ✅ ProtectedRoute Wrapper
-function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  const { user } = useAuth();
 
-  if (!user) return <Navigate to="/login" />;
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="flex flex-col items-center">
+          <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-blue-600 mb-3"></div>
+          <p className="text-blue-600 dark:text-blue-400 font-semibold">Loading user session...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
+
   return children;
 }
 
@@ -24,16 +38,17 @@ function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-      {/*  Show Navbar only if NOT admin */}
+      
       {!isAdminRoute && <Navbar />}
 
       <main className="flex-grow">{children}</main>
 
-      {/* 🦶 Show Footer only if NOT admin */}
+     
       {!isAdminRoute && <Footer />}
     </div>
   );
 }
+
 
 function App() {
   return (
@@ -42,14 +57,14 @@ function App() {
         <BrowserRouter>
           <Layout>
             <Routes>
-              {/* Default route */}
+             
               <Route path="/" element={<Navigate to="/login" />} />
 
-              {/* Auth routes */}
+             
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
 
-              {/* User Dashboard (Protected) */}
+              
               <Route
                 path="/dashboard"
                 element={
@@ -59,7 +74,6 @@ function App() {
                 }
               />
 
-             
               <Route
                 path="/admin-dashboard"
                 element={
@@ -69,7 +83,7 @@ function App() {
                 }
               />
 
-              {/* Catch all */}
+            
               <Route path="*" element={<Navigate to="/login" />} />
             </Routes>
           </Layout>

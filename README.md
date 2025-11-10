@@ -128,11 +128,11 @@ and for admins to monitor, control, and manage all parking slots seamlessly.
 ### Installation 
 ```bash
 git clone https://github.com/ajayduraisamy/Smart-Parking.git
---
+
 cd frontend
----
+
 npm install
----
+
 npm run dev
 
 

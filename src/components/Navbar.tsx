@@ -33,7 +33,7 @@ export default function Navbar() {
 
     return (
         <>
-            {/* Desktop Navbar */}
+          
             <nav className="relative flex items-center justify-between px-6 py-4 shadow-lg bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95 z-50">
                 {/* Logo */}
                 <div className="flex items-center gap-3">
